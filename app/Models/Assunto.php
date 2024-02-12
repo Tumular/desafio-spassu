@@ -13,4 +13,9 @@ class Assunto extends Model
 
     protected $primaryKey = 'CodAs';
     protected $fillable = ['Descricao'];
+
+    public function livros()
+    {
+        return $this->belongsToMany(Livro::class, 'livro_assuntos', 'Assunto_CodAs', 'Livro_CodI');
+    }
 }

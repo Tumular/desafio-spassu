@@ -15,7 +15,15 @@
             </div>
         @endif
 
-        @include('layouts.menu')
+        @if(session('error'))
+            <div class="alert alert-warning">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if(Request::route()->getName() != 'home')
+            @include('layouts.menu')
+        @endif
 
         @yield('content')
     </div>
