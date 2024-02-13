@@ -3,7 +3,7 @@
 @section('title', 'Principal')
 
 @section('content')
-     <h1 class="text-center">Bem-vindo à Libellus</h1>
+    <h1 class="text-center">Bem-vindo à Libellus</h1>
 
     <div class="containerMain">
         <div class="card">
@@ -36,4 +36,15 @@
                     <a href="{{ route('autores.index') }}" class="btn btn-primary me-2">Listar</a>
                     <a href="{{ route('autores.create') }}" class="btn btn-success">Cadastrar</a>
                 </div>
+            </div>
+        </div>
 
+        <div class="card">
+            <div class="card-body text-center">
+                <h2>Relátorio</h2>
+                <div class="d-flex align-items-center justify-content-center mt-2">
+                    <a href="{{ route('relatorio.index') }}" class="btn btn-primary me-2">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>

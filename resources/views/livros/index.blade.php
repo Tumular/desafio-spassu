@@ -8,8 +8,8 @@
             <h3 class="m-0">Livros cadastrados</h3>
             <a href="{{ route('livros.create') }}" class="btn btn-sm btn-success">Adicionar</a>
         </div>
-
-        <table class="table">
+        <hr>
+        <table id="myTable" class="table display">
             <thead>
                 <tr>
                     <th>#</th>

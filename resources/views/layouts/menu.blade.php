@@ -30,9 +30,13 @@
             <a href="{{ route('assuntos.index') }}">Listar</a>
         </div>
     </div>
+
+    <div class="menu-item">
+        <a href="{{ route('relatorio.index') }}">Relatório</a>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 <script>
     $('.menu-item').click(function() {
         $(this).children('.dropdown').toggle();
