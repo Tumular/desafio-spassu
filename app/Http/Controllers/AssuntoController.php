@@ -22,9 +22,10 @@ class AssuntoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Descricao' => 'required',
+            'Descricao' => 'required|string|max:20',
         ], [
             'Descricao.required' => 'O campo Descrição é obrigatório.',
+            'Descricao.max' => 'O campo Descrição não pode ultrapassar 20 caracteres',
         ]);
 
         Assunto::create($request->all());
@@ -41,9 +42,10 @@ class AssuntoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Descricao' => 'required',
+            'Descricao' => 'required|string|max:20',
         ], [
             'Descricao.required' => 'O campo Descrição é obrigatório.',
+            'Descricao.max' => 'O campo Descrição não pode ultrapassar 20 caracteres',
         ]);
 
         $assunto = Assunto::find($id);

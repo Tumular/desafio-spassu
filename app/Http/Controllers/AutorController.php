@@ -22,9 +22,10 @@ class AutorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Nome' => 'required',
+            'Nome' => 'required|string|max:40',
         ], [
             'Nome.required' => 'O campo Nome é obrigatório.',
+            'Nome.max' => 'O campo Nome não pode ultrapassar 40 caracteres',
         ]);
 
         Autor::create($request->all());
@@ -41,9 +42,10 @@ class AutorController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Nome' => 'required',
+            'Nome' => 'required|string|max:40',
         ], [
             'Nome.required' => 'O campo Nome é obrigatório.',
+            'Nome.max' => 'O campo Nome não pode ultrapassar 40 caracteres',
         ]);
 
         $autor = Autor::find($id);

@@ -12,7 +12,7 @@
             @csrf
             <div class="form-group flex-grow-1 mr-3 mb-0">
                 <label for="Nome">Nome:</label>
-                <input type="text" name="Nome" id="Nome" class="form-control" required>
+                <input type="text" name="Nome" id="Nome" class="form-control" minlength="1" maxlength="40" required>
                 @error('Nome')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
