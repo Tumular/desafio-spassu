@@ -3,10 +3,10 @@
 @section('title', 'Livros - Listagem')
 
 @section('content')
-    <div class="container">
+    <div class="bloco">
         <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="m-0">Livros cadastrados</h3>
-            <a href="{{ route('livros.create') }}" class="btn btn-sm btn-success">Adicionar</a>
+            <span class="m-0 titulo-pagina">Livros cadastrados</span>
+            <a href="{{ route('livros.create') }}" class="btn btn-sm btn-acao" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
         </div>
         <hr>
         <table id="myTable" class="table display">
@@ -29,7 +29,7 @@
                         <td>
                             {{ $livro->Nome }}<br>
                             @foreach($livro->autores as $autor)
-                                {{ $autor->Nome }},
+                                <i>{{ $autor->Nome }}</i>,
                             @endforeach
                         </td>
                         <td>
@@ -41,12 +41,12 @@
                         <td>{{ $livro->AnoPublicacao }}</td>
                         <td>{{ $livro->Editora }}</td>
                         <td>{{ $livro->Preco }}</td>
-                        <td>
-                            <a href="{{ route('livros.edit', $livro->CodI) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <td nowrap>
+                            <a href="{{ route('livros.edit', $livro->CodI) }}" class="btn btn-sm btn-acao" title="Editar"><i class="fas fa-edit"></i></a>
                             <form action="{{ route('livros.destroy', $livro->CodI) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este livro?')">Excluir</button>
+                                <button type="submit" class="btn btn-sm btn-cancela" onclick="return confirm('Tem certeza que deseja excluir este livro?')" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

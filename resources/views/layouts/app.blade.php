@@ -4,31 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libellus - @yield('title')</title>
-    <link href="{{ asset('css/bs/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('DataTables/datatables.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bs/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('DataTables/datatables.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.15.4-web/css/all.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if(session('error'))
-            <div class="alert alert-warning">
-                {{ session('error') }}
-            </div>
-        @endif
 
         @if(Request::route()->getName() != 'home')
             @include('layouts.menu')
         @endif
 
+        @if(session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-warning mt-3">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @yield('content')
     </div>
 
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/bs/popper.min.js') }}"></script>
     <script src="{{ asset('js/bs/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('DataTables/datatables.js') }}"></script>
     <script>

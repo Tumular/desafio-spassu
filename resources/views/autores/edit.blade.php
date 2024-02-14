@@ -3,11 +3,11 @@
 @section('title', 'Autores - Edição')
 
 @section('content')
-    <div class="container">
+    <div class="bloco">
         <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="m-0">Editar Autor</h3>
+            <span class="m-0 titulo-pagina">Editar Autor</span>
         </div>
-
+        <hr>
         <form action="{{ route('autores.update', $autor->CodAu) }}" method="POST" class="d-flex align-items-end mt-3">
             @csrf
             @method('PUT')
@@ -16,8 +16,8 @@
                 <input type="text" name="Nome" id="Nome" class="form-control" value="{{ $autor->Nome }}">
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="{{ route('autores.index') }}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-acao btn-salvar">Salvar</button>
+                <a href="{{ route('autores.index') }}" class="btn btn-cancela">Cancelar</a>
             </div>
         </form>
     </div>

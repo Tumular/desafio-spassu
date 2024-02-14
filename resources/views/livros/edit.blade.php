@@ -3,11 +3,11 @@
 @section('title', 'Editar Livro')
 
 @section('content')
-    <div class="container">
+    <div class="bloco">
         <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="m-0">Editar Livro</h3>
+            <span class="m-0 titulo-pagina">Editar Livro</span>
         </div>
-
+        <hr>
         <form action="{{ route('livros.update', $livro->CodI) }}" method="POST">
             @csrf
             @method('PUT')
@@ -89,8 +89,8 @@
                 </div>
             </div>
             <div class="form-group mt-3">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="{{ route('livros.index') }}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-acao">Salvar</button>
+                <a href="{{ route('livros.index') }}" class="btn btn-cancela">Cancelar</a>
             </div>
         </form>
     </div>

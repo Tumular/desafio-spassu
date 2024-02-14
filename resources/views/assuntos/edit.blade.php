@@ -3,11 +3,11 @@
 @section('title', 'Assunto - Edição')
 
 @section('content')
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="m-0">Editar Assunto</h3>
+    <div class="bloco">
+        <div class="d-flex justify-content-between align-items-center mt-2">
+            <span class="m-0 titulo-pagina">Editar Assunto</span>
         </div>
-
+        <hr>
         <form action="{{ route('assuntos.update', $assunto->CodAs) }}" method="POST" class="d-flex align-items-end mt-3">
             @csrf
             @method('PUT')
@@ -16,7 +16,7 @@
                 <input type="text" name="Descricao" id="Descricao" class="form-control" value="{{ $assunto->Descricao }}">
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
                 <a href="{{ route('assuntos.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>

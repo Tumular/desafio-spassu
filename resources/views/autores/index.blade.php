@@ -3,13 +3,13 @@
 @section('title', 'Autores - Listagem')
 
 @section('content')
-    <div class="container">
+    <div class="bloco">
         <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="m-0">Autores cadastrados</h3>
-            <a href="{{ route('autores.create') }}" class="btn btn-sm btn-success">Adicionar</a>
+            <span class="m-0 titulo-pagina">Autores cadastrados</span>
+            <a href="{{ route('autores.create') }}" class="btn btn-sm btn-acao" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
         </div>
-
-        <table class="table">
+        <hr>
+        <table id="myTable" class="table display">
             <thead>
                 <tr>
                     <th>#</th>
@@ -23,11 +23,11 @@
                         <td>{{ $autor->CodAu }}</td>
                         <td>{{ $autor->Nome }}</td>
                         <td>
-                            <a href="{{ route('autores.edit', $autor->CodAu) }}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{{ route('autores.edit', $autor->CodAu) }}" class="btn btn-sm btn-acao" title="Editar"><i class="fas fa-edit"></i></a>
                             <form action="{{ route('autores.destroy', $autor->CodAu) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este autor?')">Excluir</button>
+                                <button type="submit" class="btn btn-sm btn-cancela" onclick="return confirm('Tem certeza que deseja excluir este autor?')" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
