@@ -13,10 +13,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="Nome">Nome:</label>
-                        <input type="text" name="Nome" id="Nome" class="form-control" value="{{ old('Nome') }}"
+                        <label for="Titulo">Título:</label>
+                        <input type="text" name="Titulo" id="Titulo" class="form-control" value="{{ old('Titulo') }}"
                             required>
-                        @error('Nome')
+                        @error('Titulo')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

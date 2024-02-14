@@ -42,22 +42,22 @@ class LivroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'Titulo' => 'required|string|max:40',
             'Editora' => 'required|string|max:40',
             'Edicao' => 'required|integer',
             'AnoPublicacao' => 'required|string|size:4',
-            'Nome' => 'required|string|max:60',
             'Preco' => 'required|numeric|between:0,9999.99',
             'autores' => 'required|array',
             'assuntos' => 'required|array',
         ], [
+            'Titulo.required' => 'O campo Titulo é obrigatório.',
+            'Titulo.max' => 'O campo Titulo não pode ultrapassar 40 caracteres.',
             'Editora.required' => 'O campo Editora é obrigatório.',
             'Editora.max' => 'O campo não pode ultrapassar 40 caracteres.',
             'Edicao.required' => 'O campo Edição é obrigatório.',
             'Edicao.integer' => 'O campo Edição deve ser um número inteiro.',
             'AnoPublicacao.required' => 'O campo Ano de Publicação é obrigatório.',
             'AnoPublicacao.size' => 'O campo precisa conter 4 caracteres.',
-            'Nome.required' => 'O campo Nome é obrigatório.',
-            'Nome.max' => 'O campo não pode ultrapassar 60 caracteres.',
             'Preco.required' => 'O campo Preço é obrigatório.',
             'Preco.numeric' => 'O campo Preço deve ser um valor numérico.',
             'Preco.between' => 'O campo Preço deve estar entre :min e :max.',
@@ -68,7 +68,7 @@ class LivroController extends Controller
 
         try {
 
-            $livro = Livro::create($request->only(['Editora', 'Edicao', 'AnoPublicacao', 'Nome', 'Preco']));
+            $livro = Livro::create($request->only(['Titulo', 'Editora', 'Edicao', 'AnoPublicacao', 'Preco']));
 
             $livro->autores()->attach($request->input('autores'));
             $livro->assuntos()->attach($request->input('assuntos'));
@@ -123,10 +123,10 @@ class LivroController extends Controller
     public function update(Request $request, Livro $livro)
     {
         $request->validate([
+            'Titulo' => 'required|string|max:40',
             'Editora' => 'required|string|max:40',
             'Edicao' => 'required|integer',
             'AnoPublicacao' => 'required|string|size:4',
-            'Nome' => 'required|string|max:40',
             'Preco' => 'required|numeric|between:0,9999.99',
             'autores' => 'required|array',
             'assuntos' => 'required|array',
@@ -137,8 +137,8 @@ class LivroController extends Controller
             'Edicao.integer' => 'O campo Edição deve ser um número inteiro.',
             'AnoPublicacao.required' => 'O campo Ano de Publicação é obrigatório.',
             'AnoPublicacao.size' => 'O campo precisa conter 4 caracteres.',
-            'Nome.required' => 'O campo Nome é obrigatório.',
-            'Nome.max' => 'O campo não pode ultrapassar 60 caracteres.',
+            'Titulo.required' => 'O campo Titulo é obrigatório.',
+            'Titulo.max' => 'O campo Titulo não pode ultrapassar 40 caracteres.',
             'Preco.required' => 'O campo Preço é obrigatório.',
             'Preco.numeric' => 'O campo Preço deve ser um valor numérico.',
             'Preco.between' => 'O campo Preço deve estar entre :min e :max.',

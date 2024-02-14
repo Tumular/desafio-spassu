@@ -13,14 +13,14 @@ return new class extends Migration
     {
         DB::statement("
             CREATE VIEW v_relatorio_livros_por_autor AS
-            SELECT a.Nome AS Autor, l.Nome, l.Editora, l.Edicao, l.Preco, l.AnoPublicacao, GROUP_CONCAT(DISTINCT ast.descricao SEPARATOR ', ') AS Assuntos
+            SELECT a.Nome AS Autor, l.Titulo, l.Editora, l.Edicao, l.Preco, l.AnoPublicacao, GROUP_CONCAT(DISTINCT ast.descricao SEPARATOR ', ') AS Assuntos
             FROM autores a
             JOIN livro_autores la ON a.CodAu = la.Autor_CodAu
             JOIN livros l ON la.Livro_CodI = l.CodI
             JOIN livro_assuntos lau ON l.CodI = lau.Livro_CodI
             JOIN assuntos ast ON lau.Assunto_CodAs = ast.CodAs
-            GROUP BY a.CodAu, l.Nome, l.Editora, l.Edicao, l.Preco, l.AnoPublicacao
-            ORDER BY a.Nome, l.Nome, l.Editora, l.Edicao;
+            GROUP BY a.CodAu, l.Titulo, l.Editora, l.Edicao, l.Preco, l.AnoPublicacao
+            ORDER BY a.Nome, l.Titulo, l.Editora, l.Edicao;
         ");
     }
 

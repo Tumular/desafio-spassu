@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('livros', function (Blueprint $table) {
-            $table->string('Nome', 60)->nullable()->after('Edicao');
-            $table->decimal('Preco', 10, 2)->nullable()->after('Nome');
+            $table->string('Titulo', 40)->nullable()->after('CodI');
+            $table->decimal('Preco', 10, 2)->nullable()->after('AnoPublicacao');
         });
     }
 
@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('livros', function (Blueprint $table) {
-            $table->dropColumn('Nome');
+            $table->dropColumn('Titulo');
             $table->dropColumn('Preco');
         });
     }

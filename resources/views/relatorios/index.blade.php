@@ -50,7 +50,7 @@
                             data: 'Autor'
                         },
                         {
-                            data: 'Nome'
+                            data: 'Titulo'
                         },
                         {
                             data: 'Editora'

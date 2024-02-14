@@ -12,7 +12,7 @@ class Livro extends Model
     protected $table = 'livros';
 
     protected $primaryKey = 'CodI';
-    protected $fillable = ['Editora', 'Edicao', 'AnoPublicacao', 'Nome', 'Preco'];
+    protected $fillable = ['Titulo', 'Editora', 'Edicao', 'AnoPublicacao', 'Preco'];
 
     public function autores()
     {

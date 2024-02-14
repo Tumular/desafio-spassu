@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Nome - Autores</th>
+                    <th>Título - Autores</th>
                     <th>Assunto</th>
                     <th>Edição</th>
                     <th>Publicação</th>
@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ $livro->CodI }}</td>
                         <td>
-                            {{ $livro->Nome }}<br>
+                            {{ $livro->Titulo }}<br>
                             @foreach($livro->autores as $autor)
                                 <i>{{ $autor->Nome }}</i>,
                             @endforeach
