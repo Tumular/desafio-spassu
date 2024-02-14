@@ -14,8 +14,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="Titulo">Título:</label>
-                        <input type="text" name="Titulo" id="Titulo" class="form-control" value="{{ old('Titulo') }}"
-                            required>
+                        <input type="text" name="Titulo" id="Titulo" class="form-control" value="{{ old('Titulo') }}" minlength="1" maxlength="40" required>
                         @error('Titulo')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -26,8 +25,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Editora">Editora:</label>
-                        <input type="text" name="Editora" id="Editora" class="form-control"
-                            value="{{ old('Editora') }}" required>
+                        <input type="text" name="Editora" id="Editora" class="form-control" value="{{ old('Editora') }}" minlength="1" maxlength="40" required>
                         @error('Editora')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -36,8 +34,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="Edicao">Edição:</label>
-                        <input type="number" name="Edicao" id="Edicao" class="form-control" value="{{ old('Edicao') }}"
-                            required>
+                        <input type="number" name="Edicao" id="Edicao" class="form-control" value="{{ old('Edicao') }}" min="0" required>
                         @error('Edicao')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -46,8 +43,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="AnoPublicacao">Publicação:</label>
-                        <input type="text" name="AnoPublicacao" id="AnoPublicacao" class="form-control"
-                            value="{{ old('AnoPublicacao') }}" required>
+                        <input type="text" name="AnoPublicacao" id="AnoPublicacao" class="form-control" value="{{ old('AnoPublicacao') }}" maxlength="4" required>
                         @error('AnoPublicacao')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -56,8 +52,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="Preco">Preço:</label>
-                        <input type="text" name="Preco" id="Preco" class="form-control" value="{{ old('Preco') }}"
-                            required>
+                        <input type="text" name="Preco" id="Preco" class="form-control" value="{{ old('Preco') }}" required>
                         @error('Preco')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

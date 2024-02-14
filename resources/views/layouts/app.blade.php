@@ -6,7 +6,7 @@
     <title>Libellus - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/bs/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables/datatables.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.15.4-web/css/all.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
