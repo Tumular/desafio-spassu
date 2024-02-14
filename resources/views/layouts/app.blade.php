@@ -40,7 +40,7 @@
     <script src="{{ asset('DataTables/datatables.js') }}"></script>
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable({
+            $('#tabela-datatable').DataTable({
                 language: {
                     "sEmptyTable": "Nenhum registro encontrado",
                     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",

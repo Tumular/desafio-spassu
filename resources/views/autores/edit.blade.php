@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="bloco">
-        <div class="d-flex justify-content-between align-items-center mt-3">
+        <div class="d-flex justify-content-between align-items-center mt-2">
             <span class="m-0 titulo-pagina">Editar Autor</span>
         </div>
         <hr>
@@ -13,7 +13,10 @@
             @method('PUT')
             <div class="form-group flex-grow-1 mr-3 mb-0">
                 <label for="Nome">Nome:</label>
-                <input type="text" name="Nome" id="Nome" class="form-control" value="{{ $autor->Nome }}">
+                <input type="text" name="Nome" id="Nome" class="form-control" value="{{ $autor->Nome }}" required>
+                @error('Nome')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <button type="submit" class="btn btn-acao btn-salvar">Salvar</button>

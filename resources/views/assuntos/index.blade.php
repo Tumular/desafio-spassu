@@ -6,10 +6,10 @@
     <div class="bloco">
         <div class="d-flex justify-content-between align-items-center mt-2">
             <span class="m-0 titulo-pagina">Assuntos cadastrados</span>
-            <a href="{{ route('assuntos.create') }}" class="btn btn-sm btn-success" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
+            <a href="{{ route('assuntos.create') }}" class="btn btn-sm btn-acao" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
         </div>
         <hr>
-        <table id="myTable" class="table display">
+        <table id="tabela-datatable" class="table display">
             <thead>
                 <tr>
                     <th>#</th>
@@ -27,7 +27,7 @@
                             <form action="{{ route('assuntos.destroy', $assunto->CodAs) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-cancela" onclick="return confirm('Tem certeza que deseja excluir este assunto?')" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-sm btn-cancela{{ $assunto->livros()->exists() ? ' disabled' : '' }}" onclick="return confirm('Tem certeza que deseja excluir este assunto?')" title="Excluir" {{ $assunto->livros()->exists() ? 'disabled' : '' }}><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

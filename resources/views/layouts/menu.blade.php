@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item menu-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}"><span>Principal</span></a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('principal') }}"><span>Principal</span></a>
                 </li>
                 {{-- Menu Autores --}}
                 <li class="nav-item dropdown menu-item">

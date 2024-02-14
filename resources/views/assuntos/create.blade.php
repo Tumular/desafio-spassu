@@ -12,11 +12,14 @@
             @csrf
             <div class="form-group flex-grow-1 mb-0">
                 <label for="Descricao">Assunto:</label>
-                <input type="text" name="Descricao" id="Descricao" class="form-control">
+                <input type="text" name="Descricao" id="Descricao" class="form-control" required>
+                @error('Descricao')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
             </div>
             <div>
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
-                <a href="{{ route('assuntos.index') }}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-acao btn-salvar">Salvar</button>
+                <a href="{{ route('assuntos.index') }}" class="btn btn-cancela">Cancelar</a>
             </div>
         </form>
     </div>

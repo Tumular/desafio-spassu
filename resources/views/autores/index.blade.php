@@ -4,12 +4,12 @@
 
 @section('content')
     <div class="bloco">
-        <div class="d-flex justify-content-between align-items-center mt-3">
+        <div class="d-flex justify-content-between align-items-center mt-2">
             <span class="m-0 titulo-pagina">Autores cadastrados</span>
             <a href="{{ route('autores.create') }}" class="btn btn-sm btn-acao" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
         </div>
         <hr>
-        <table id="myTable" class="table display">
+        <table id="tabela-datatable" class="table display">
             <thead>
                 <tr>
                     <th>#</th>
@@ -27,7 +27,7 @@
                             <form action="{{ route('autores.destroy', $autor->CodAu) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-cancela" onclick="return confirm('Tem certeza que deseja excluir este autor?')" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-sm btn-cancela{{ $autor->livros()->exists() ? ' disabled' : '' }}" onclick="return confirm('Tem certeza que deseja excluir este autor?')" title="Excluir" {{ $autor->livros()->exists() ? 'disabled' : '' }}><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

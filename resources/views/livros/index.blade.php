@@ -9,7 +9,7 @@
             <a href="{{ route('livros.create') }}" class="btn btn-sm btn-acao" title="Adicionar"><i class="fas fa-plus"></i> Adicionar</a>
         </div>
         <hr>
-        <table id="myTable" class="table display">
+        <table id="tabela-datatable" class="table display">
             <thead>
                 <tr>
                     <th>#</th>

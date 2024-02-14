@@ -85,14 +85,14 @@ span {
     color: var(--texto-escuro);
 }
 
-#myTable th:first-child,
-#myTable td:first-child {
+#tabela-datatable th:first-child,
+#tabela-datatable td:first-child {
     width: 5%;
     text-align: center;
 }
 
-#myTable th:last-child,
-#myTable td:last-child {
+#tabela-datatable th:last-child,
+#tabela-datatable td:last-child {
     width: 10%;
     text-align: center;
 }
@@ -127,7 +127,7 @@ span {
 
 /* CSS - Classes - Paginas */
 .titulo-pagina {
-    text-transform: uppercase;
+    text-transform: initial;
     font-size: var(--titulo-tamanho);
     font-weight: bold;
 }

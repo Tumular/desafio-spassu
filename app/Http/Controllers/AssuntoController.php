@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Assunto;
+use App\Models\LivroAssunto;
 
 class AssuntoController extends Controller
 {
@@ -22,6 +23,8 @@ class AssuntoController extends Controller
     {
         $request->validate([
             'Descricao' => 'required',
+        ], [
+            'Descricao.required' => 'O campo Descrição é obrigatório.',
         ]);
 
         Assunto::create($request->all());
@@ -39,6 +42,8 @@ class AssuntoController extends Controller
     {
         $request->validate([
             'Descricao' => 'required',
+        ], [
+            'Descricao.required' => 'O campo Descrição é obrigatório.',
         ]);
 
         $assunto = Assunto::find($id);
@@ -49,6 +54,12 @@ class AssuntoController extends Controller
 
     public function destroy($id)
     {
+        $livrosRelacionados = LivroAssunto::where('Assunto_CodAs', $id)->exists();
+
+        if ($livrosRelacionados) {
+            return redirect()->route('assuntos.index')->with('error', 'Este assunto não pode ser excluído pois está relacionado a um ou mais livros.');
+        }
+
         $assunto = Assunto::find($id);
         $assunto->delete();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Autor;
+use App\Models\LivroAutor;
 
 class AutorController extends Controller
 {
@@ -22,6 +23,8 @@ class AutorController extends Controller
     {
         $request->validate([
             'Nome' => 'required',
+        ], [
+            'Nome.required' => 'O campo Nome é obrigatório.',
         ]);
 
         Autor::create($request->all());
@@ -39,6 +42,8 @@ class AutorController extends Controller
     {
         $request->validate([
             'Nome' => 'required',
+        ], [
+            'Nome.required' => 'O campo Nome é obrigatório.',
         ]);
 
         $autor = Autor::find($id);
@@ -49,6 +54,12 @@ class AutorController extends Controller
 
     public function destroy($id)
     {
+        $livrosRelacionados = LivroAutor::where('Autor_CodAu', $id)->exists();
+
+        if ($livrosRelacionados) {
+            return redirect()->route('autores.index')->with('error', 'Este Autor não pode ser excluído pois está relacionado a um ou mais livros.');
+        }
+
         $autor = Autor::find($id);
         $autor->delete();
 

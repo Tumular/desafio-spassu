@@ -19,7 +19,7 @@ use App\Http\Controllers\RelatorioController;
 
 Route::get('/', function () {
     return view('principal');
-})->name('home');
+})->name('principal');
 
 Route::resource('livros', LivroController::class);
 Route::resource('autores', AutorController::class);
