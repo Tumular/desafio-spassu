@@ -17,7 +17,7 @@ class LivroController extends Controller
      */
     public function index()
     {
-        $livros = Livro::with('autores', 'assuntos')->get();
+        $livros = Livro::latest('CodI')->with('autores', 'assuntos')->get();
         return view('livros.index', compact('livros'));
     }
 
@@ -28,8 +28,8 @@ class LivroController extends Controller
      */
     public function create()
     {
-        $autores = Autor::all();
-        $assuntos = Assunto::all();
+        $autores = Autor::orderBy('Nome')->get();
+        $assuntos = Assunto::orderBy('Descricao')->get();
         return view('livros.create', compact('autores', 'assuntos'));
     }
 
@@ -84,17 +84,6 @@ class LivroController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Livro  $livro
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Livro $livro)
-    {
-        return view('livros.show', compact('livro'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Livro  $livro
@@ -103,8 +92,8 @@ class LivroController extends Controller
     public function edit(Livro $livro)
     {
         // Carrega todos os autores e assuntos
-        $autores = Autor::all();
-        $assuntos = Assunto::all();
+        $autores = Autor::orderBy('Nome')->get();
+        $assuntos = Assunto::orderBy('Descricao')->get();
 
         // Carrega os autores e assuntos relacionados ao livro selecionado
         $autoresSelecionados = $livro->autores()->pluck('CodAu')->toArray();

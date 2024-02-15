@@ -10,7 +10,7 @@ class AssuntoController extends Controller
 {
     public function index()
     {
-        $assuntos = Assunto::all();
+        $assuntos = Assunto::latest('CodAs')->get();
         return view('assuntos.index', compact('assuntos'));
     }
 

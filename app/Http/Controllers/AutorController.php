@@ -10,7 +10,7 @@ class AutorController extends Controller
 {
     public function index()
     {
-        $autores = Autor::all();
+        $autores = Autor::latest('CodAu')->get();
         return view('autores.index', compact('autores'));
     }
 

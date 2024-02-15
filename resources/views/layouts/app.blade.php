@@ -69,14 +69,21 @@
                         "csv": "CSV"
                     }
                 },
-                dom: 'Bfrtip',
+                dom: 'frtip',
                 buttons: [
                     'excel', 'pdf', 'csv'
                 ],
+                "ordering": false,
                 "columnDefs": [{
                     "targets": -1,
                     "orderable": false
-                }]
+                }],
+                initComplete: function () {
+                    var table = this.api();
+                    if (table.rows().count() === 0) {
+                        $('.dt-buttons').hide();
+                    }
+                }
             });
         });
     </script>
